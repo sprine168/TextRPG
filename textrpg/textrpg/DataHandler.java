@@ -26,10 +26,10 @@ public class DataHandler {
             Class.forName("org.sqlite.JDBC");
             String path; //Path to the database
             if (development) {
-                path = "jdbc:sqlite:./src/textrpg/data/items.db";
+                path = "jdbc:sqlite:./src/textrpg/textrpg.data/textrpg.items.db";
             }
             else {
-                path = "jdbc:sqlite:./data/items.db";
+                path = "jdbc:sqlite:./textrpg.data/textrpg.items.db";
             }
             
             c = DriverManager.getConnection(path);

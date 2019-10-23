@@ -17,7 +17,7 @@ public class Item
 
     private String[] tags;//These are tags that the item can be refered to
     //Say there is a HealthPotion in the room , if someone wants to take it they would type "take pot" or "take 'tag'" etc.
-    //Different items cannot have the same tag
+    //Different textrpg.items cannot have the same tag
     //One of the tags for the item must be the item name (it is not included by default)
     //All Items must have tags including child classes (Equipment/Weapons)
 
@@ -125,7 +125,7 @@ public class Item
         
         System.arraycopy(t, 0, temp, 0, t.length);
         
-        temp[t.length] = getName().toLowerCase(); //Inserts the items name as a tag
+        temp[t.length] = getName().toLowerCase(); //Inserts the textrpg.items name as a tag
         tags = temp;
     }
     
@@ -154,7 +154,7 @@ public class Item
     private final String itemErrorString = "You cannot use this item!";
 
     /**
-     * Prints an error stating that the Player is unable to use the Item.
+     * Prints an error stating that the textrpg.Player is unable to use the Item.
      */
     public void itemError() {
         System.out.println(itemErrorString);

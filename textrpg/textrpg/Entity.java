@@ -1,6 +1,4 @@
-//All living things in the game (The Player, NPCs, and monsters) inherit this class
-
-package textrpg;
+package textrpg;//All living things in the game (The textrpg.Player, NPCs, and textrpg.monsters) inherit this class
 
 public class Entity {
     private String name;

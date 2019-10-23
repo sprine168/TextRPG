@@ -1,13 +1,14 @@
-//Need to make quests and have objects associated in here n such ya know
+package textrpg;//Need to make quests and have objects associated in here n such ya know
 
-package textrpg;
+import textrpg.equipment.Equipment;
+import textrpg.equipment.NoneE;
+import textrpg.items.Item;
+import textrpg.jobs.Job;
+import textrpg.weapons.NoneW;
+import textrpg.weapons.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;
-import textrpg.equipment.*;
-import textrpg.jobs.*;
-import textrpg.weapons.*;
-import textrpg.items.*;
 
 public class Player extends Entity {
 
@@ -80,10 +81,10 @@ public class Player extends Entity {
     public void addItemToInventory(Item i){inventory.add(i);}
     
     public Job getJob(){return job;}
-    public void setJob(Job j){job = j;} //if it is ever possible to switch jobs then need to do more than this
+    public void setJob(Job j){job = j;} //if it is ever possible to switch textrpg.jobs then need to do more than this
 
     /**
-     * Returns the Player's inventory without duplicates
+     * Returns the textrpg.Player's inventory without duplicates
      * @return Item[]
      */
     public Item[] getUniqueInventoryItems() {
@@ -170,7 +171,7 @@ public class Player extends Entity {
         System.out.println("Helmet: " + getHat().getName() + "\tGoggles: " + getGoggles().getName());
     }
 
-    @Override //Sets the current stats by calculating the base and bonus from equipment
+    @Override //Sets the current stats by calculating the base and bonus from textrpg.equipment
     public void initCurrentStats() {
         int[] temp = calculateBonusStats();
         super.setCurrentHealth(super.getBaseHealth() + temp[0]);
@@ -184,7 +185,7 @@ public class Player extends Entity {
         super.setCurrentMagicDefense(super.getBaseMagicDefense() + temp[6]);
     }
 
-    //Calculates the bonus stats from equipment
+    //Calculates the bonus stats from textrpg.equipment
     private int[] calculateBonusStats() {
         int[] temp = new int[7];
         for (int i = 0; i < 7; i++) {
@@ -243,20 +244,20 @@ public class Player extends Entity {
         super.setCurrentMagicDefense(super.getCurrentMagicDefense() + statsModified[6]);
     }
 
-    //Look at docs for equipment type
+    //Look at docs for textrpg.equipment type
     //Calls this method when no type is specified
     /**
-     * Sets the equipment passed to the Player
-     * @param e The equipment to equip
+     * Sets the textrpg.equipment passed to the textrpg.Player
+     * @param e The textrpg.equipment to equip
      */
     public void setEquipment(Equipment e) {
         setEquipment(e, e.getEquipmentType());
     }
 
     /**
-     * Sets the equipment passed to the Player
-     * @param e The equipment to equip
-     * @param type The type of equipment
+     * Sets the textrpg.equipment passed to the textrpg.Player
+     * @param e The textrpg.equipment to equip
+     * @param type The type of textrpg.equipment
      */
     public void setEquipment(Equipment e, int type) {
         switch (type) {

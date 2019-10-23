@@ -9,7 +9,7 @@ public class Weapon extends Equipment {
     
     private int weaponDmg;
     
-    // need a method to determine types of weapons
+    // need a method to determine types of textrpg.weapons
     //i dont remember why though
     public int getWeaponType(){return weaponType;}
     public void setWeaponType(int w){weaponType = w;}

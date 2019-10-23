@@ -1,14 +1,22 @@
-//This is where the game runs
-package textrpg;
+package textrpg;//This is where the game runs
 
 import java.util.List;
 import java.util.Scanner;
-import textrpg.equipment.*;
-import textrpg.items.*;
+
+import textrpg.*;
+import textrpg.equipment.BronzeChest;
+import textrpg.equipment.Equipment;
+import textrpg.equipment.NoneE;
+import textrpg.items.HealthPotion;
+import textrpg.items.Item;
+import textrpg.items.SlimeExtract;
 import textrpg.monsters.Slime;
 import textrpg.npcs.NPC;
-import textrpg.rooms.*;
-import textrpg.weapons.*;
+import textrpg.rooms.PowerRangerRoom;
+import textrpg.rooms.Room;
+import textrpg.rooms.StartingRoom;
+import textrpg.weapons.IronSword;
+import textrpg.weapons.Weapon;
 
 public class Game {
 
@@ -20,12 +28,12 @@ public class Game {
 
     //loadRooms() maybe
     public Game(Player hero) {
-        //Eventually there'll be a database that stores all of the rooms and other things
+        //Eventually there'll be a database that stores all of the textrpg.rooms and other things
         printBreak();
         
         DataHandler.openDatabase(); //Opens the database
 
-        //This block is temp for now since rooms are just objects sitting in a class right now
+        //This block is temp for now since textrpg.rooms are just objects sitting in a class right now
         Room prRoom = new PowerRangerRoom(null, null, null, null);
         Room startRoom = new StartingRoom(null, null, null, null);//there's a better way to do this...
         prRoom.setExits(null, startRoom, null, null);
@@ -122,13 +130,13 @@ public class Game {
             case "inventory":
                 hero.printInventory();
                 break;
-            case "skills":
+            case "src/testrpg/textrpg.skills":
                 hero.getJob().printSkills();
                 break;
             case "stats":
                 hero.printStatus();
                 break;
-            case "equipment":
+            case "src/testrpg/textrpg.equipment":
                 hero.printEquipment();
                 break;
             case "take":
@@ -166,7 +174,7 @@ public class Game {
     //Method for testing purpose
     private void startingThingsForTesting(Player hero) {
         System.out.println("There is much testing to be done.\n'b' for battle and 'help' for help~~");
-        System.out.println("Here are some items for you!");
+        System.out.println("Here are some textrpg.items for you!");
         Item s = new SlimeExtract();
         hero.addItemToInventory(s);
         Item hp = new HealthPotion();
@@ -193,7 +201,7 @@ public class Game {
         String[] look = {"look", "search", "l"};
         String[] stats = {"stats", "status"};
         String[] take = {"take", "get"};
-        String[] skills = {"skills", "skill"};
+        String[] skills = {"src/testrpg/textrpg.skills", "skill"};
         String[] examine = {"examine", "inspect"};
 
         String[][] commands = {north, south, east, west, exits, battle, inventory, look, stats, take, skills, examine};
@@ -220,14 +228,14 @@ public class Game {
     //Prints all of the available commands
     private void printCommands() {
         printBreak();
-        System.out.println("north, south, east, west - Moves you arround to different rooms.");
+        System.out.println("north, south, east, west - Moves you arround to different textrpg.rooms.");
         System.out.println("battle - Starts a testing fight against a slime.");
         System.out.println("look - Tells you the room description.");
-        System.out.println("inventory - Tells you all of the items that you have on yourself.");
+        System.out.println("inventory - Tells you all of the textrpg.items that you have on yourself.");
         System.out.println("exits - Tells you where all of the exits are in the room.");
-        System.out.println("skills - Tells you all of the skills that you know.");
+        System.out.println("textrpg.skills - Tells you all of the textrpg.skills that you know.");
         System.out.println("status - Tells your stats, name, and class.");
-        System.out.println("equipment - Tells you the current equipment that you're wearing.");
+        System.out.println("textrpg.equipment - Tells you the current textrpg.equipment that you're wearing.");
         System.out.println("take - Takes an item from something or somewhere. Usage is take 'object' where object is what you want to take.");
         System.out.println("equip - Equips something to youreself. Usage is equip 'object' where object is what you want to equip to yourself.");
         System.out.println("talk - Talks to someone, including yourself! Usage is talk 'person' where person is who you want to talk to. If you don't specify someone then it will talk to whoever it deems is most important.");
@@ -297,14 +305,14 @@ public class Game {
     }
 
     /**
-     * Equips the equipment/weapon based on the input from the player
+     * Equips the textrpg.equipment/weapon based on the input from the player
      * @param input
      * @param hero 
      */
     private void equipCommand(String input, Player hero) {
         boolean pass = false;
-        Equipment original = null; //The original equipment that was on the player
-        Equipment temp = null; //The equipment found in the players inventory
+        Equipment original = null; //The original textrpg.equipment that was on the player
+        Equipment temp = null; //The textrpg.equipment found in the players inventory
 
         for (Item i : hero.getInventory()) {
             for (String s : i.getTags()) {
@@ -317,8 +325,8 @@ public class Game {
                         if (equipType > 7) {
                             equipType = equipType - 1; //For index mapping purposes, look at docs
                         }
-                        original = hero.getEquipment()[equipType - 1]; //Gets the current players equipment, semi chance of bug but none so far
-                        hero.setEquipment(temp); //Sets the equipment from the inventory
+                        original = hero.getEquipment()[equipType - 1]; //Gets the current players textrpg.equipment, semi chance of bug but none so far
+                        hero.setEquipment(temp); //Sets the textrpg.equipment from the inventory
                         System.out.println("Equiped " + temp.getName());
                     }
                     else {
@@ -333,7 +341,7 @@ public class Game {
         if (!pass) {
             System.out.println("There's no item here called that.");
         }
-        else if (temp != null && !original.getName().equals("None")) { //Switch the equipment from inventory, all empty slots have a "None" equipment in them
+        else if (temp != null && !original.getName().equals("None")) { //Switch the textrpg.equipment from inventory, all empty slots have a "None" textrpg.equipment in them
             hero.addItemToInventory(original);
         }
     }
@@ -423,7 +431,7 @@ public class Game {
         boolean pass = false; //checks if something was unequiped
         String parsedInput = parseUnequipInput(input);
         
-        switch (parsedInput) { //separate inputs for boots, boot, weapons (both of them), and all
+        switch (parsedInput) { //separate inputs for boots, boot, textrpg.weapons (both of them), and all
             case "weapon":
                 pass = unEquip(hero.getWeapon(), hero);
                 break;
@@ -454,7 +462,7 @@ public class Game {
             case "goggles":
                 pass = unEquip(hero.getGoggles(), hero);
                 break;
-            case "weapons":
+            case "src/testrpg/textrpg.weapons":
                 pass = unEquip(hero.getWeapon(), hero);
                 boolean pass2 = unEquip(hero.getOffHand(), hero);
                 
@@ -574,7 +582,7 @@ public class Game {
      * @return Item
      */
     private static Item searchItem(Item i, String input) {
-        for (String tag : i.getTags()) { //Loops through all of the items tags
+        for (String tag : i.getTags()) { //Loops through all of the textrpg.items tags
             if (tag.equalsIgnoreCase(input)) {
                 return i;
             }
@@ -583,7 +591,7 @@ public class Game {
     }
 
     /**
-     * Prints out the items description.
+     * Prints out the textrpg.items description.
      * @param input
      * @param hero 
      */

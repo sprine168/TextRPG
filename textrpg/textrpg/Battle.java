@@ -1,6 +1,5 @@
-//This class handles all of the battle functions needed for a standard battle
+package textrpg;//This class handles all of the battle functions needed for a standard battle
 //The players health and mana reset after every battle
-package textrpg;
 
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -125,7 +124,7 @@ public final class Battle {
         } while (!pass);
     }
 
-    //Player uses attack
+    //textrpg.Player uses attack
     private void playerAttack(int dmg) {
         for (Skill skill : hero.getJob().getSkills()) {
             if (skill.getSkillName().equals("Attack")) {
@@ -138,7 +137,7 @@ public final class Battle {
         pass = true;//PASSED!
     }
 
-    //Player uses a skill
+    //textrpg.Player uses a skill
     private boolean playerSkill(int dmg) {
         String skillz = "";
         for (int i = 0; i < hero.getJob().getSkills().length; i++) {
@@ -190,7 +189,7 @@ public final class Battle {
         }
     }
 
-    //Player uses an item
+    //textrpg.Player uses an item
     private boolean playerItem() {
         if (!hero.getInventory().isEmpty()) {
             String[][] inven = Game.getCountedInventory(hero.getInventory()); //Gets the individual strings for each item in the hero's inventory
@@ -198,7 +197,7 @@ public final class Battle {
             String formattedInven = "";
             for (int i = 0; i < inven.length; i++) {
                 if (inven[i][0] != null) {
-                    if (Integer.valueOf(inven[i][1]) > 1) { //If they're multiple items of the same name
+                    if (Integer.valueOf(inven[i][1]) > 1) { //If they're multiple textrpg.items of the same name
                         formattedInven += "[" + i + "]" + inven[i][0] + "(" + inven[i][1] + "), ";
                     }
                     else {
@@ -257,7 +256,7 @@ public final class Battle {
         }
     }
 
-    //Player runs away
+    //textrpg.Player runs away
     private boolean runAway() {
         if (monster.isEscapable()) {
             if ((rand.nextInt(10) + 1) < 7) {//generates a number from 1-10 and checks if < 8                             //should have it check agility and stuff

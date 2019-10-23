@@ -9,7 +9,7 @@ import textrpg.items.Item;
 
 public class Shop {
 
-    Item[] inventory; //Shop should always have items
+    Item[] inventory; //Shop should always have textrpg.items
     Scanner scan = new Scanner(System.in);
 
     public Item[] getInventory(){return inventory;}
@@ -66,7 +66,7 @@ public class Shop {
             }
         }
 
-        //If the input is legal then buy the item, maybe make unsellable items
+        //If the input is legal then buy the item, maybe make unsellable textrpg.items
         if (chosen > -1 && chosen < getInventory().length) {
             if (getInventory()[chosen].getGoldWorth() <= hero.getGold()) {
                 hero.getInventory().add(getInventory()[chosen]);
@@ -89,12 +89,12 @@ public class Shop {
 
         String[][] inven = Game.getCountedInventory(hero.getInventory()); //Gets the individual strings for each item in the hero's inventory
 
-        //Prints the items the hero has to sell with in the format [index to chose]"Item name"(quantity)
+        //Prints the textrpg.items the hero has to sell with in the format [index to chose]"Item name"(quantity)
         String formattedInven = "";
         int j = 0; //The index for the exit and unique item length
         for (int i = 0; i < inven.length; i++) {
             if (inven[i][0] != null) {
-                if (Integer.valueOf(inven[i][1]) > 1) { //If they're multiple items of the same name
+                if (Integer.valueOf(inven[i][1]) > 1) { //If they're multiple textrpg.items of the same name
                     formattedInven += "[" + i + "]" + inven[i][0] + "(" + inven[i][1] + ")(" + hero.getUniqueInventoryItems()[i].getSellingPrice() + "g), ";
                     j++;
                 }

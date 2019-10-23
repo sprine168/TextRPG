@@ -28,14 +28,14 @@ public class Room {
     public void setRoomName(String n){roomName = n;}
 
     /**
-     * Returns the rooms description with all of the items
+     * Returns the textrpg.rooms description with all of the textrpg.items
      * @return roomDescription
      */
     public String getRoomDescription() {
         String temp = roomDescription;
 
-        List<Item> noDescList = new ArrayList<>(); //List for the items with no description (dropped items)
-        List<Item> descList = new ArrayList<>(); //List for the items that are described (set by the room)
+        List<Item> noDescList = new ArrayList<>(); //List for the textrpg.items with no description (dropped textrpg.items)
+        List<Item> descList = new ArrayList<>(); //List for the textrpg.items that are described (set by the room)
         for(Item i: getRoomLoot()) { //Adds the item to the apropriate list
             if(i.getItemRoomDescription() == null) {
                 noDescList.add(i);
@@ -47,12 +47,12 @@ public class Room {
         String[][] countedNoDesc = Game.getCountedInventory(noDescList); //Obtains the counted version of each list
         String[][] countedDesc = Game.getCountedInventory(descList);
 
-        //Adds the items description to the room's description
+        //Adds the textrpg.items description to the room's description
         for (int i = 0; i < countedDesc.length; i++) {
             Item tempItem = Game.getItemFromInventory(countedDesc[i][0], descList);
             temp += " " + tempItem.getItemRoomDescription();
         }
-        //Sets the items description and adds it to the room's description
+        //Sets the textrpg.items description and adds it to the room's description
         for (int i = 0; i < countedNoDesc.length; i++) {
             Item tempItem = Game.getItemFromInventory(countedNoDesc[i][0], noDescList);
             if (tempItem != null) {
@@ -73,7 +73,7 @@ public class Room {
     }
     public void setRoomDescription(String n){roomDescription = n;}
 
-    public List<Item> getRoomLoot(){return roomLoot;}//returns a list of items
+    public List<Item> getRoomLoot(){return roomLoot;}//returns a list of textrpg.items
 
     //Tells you the exits that are available from the current room NEED TO FIX FORMATTTTT
     public void getExits() {

@@ -8,7 +8,7 @@ public class TextRPG {
     final static int DATA_BASE = 0;
 
     public TextRPG() throws IOException {
-        System.out.println("New Game = 1, Continue = 2");
+        System.out.println("New textrpg.Game = 1, Continue = 2");
 
         int ans = 0; //The variable for choosing a menu choice
         Scanner scan = new Scanner(System.in);
@@ -65,7 +65,7 @@ public class TextRPG {
                 }
             } while (nameLoop);
 
-            System.out.println("What is your job? (Warrior = 1, Mage = 2, Thief = 3)"); //array of jobs later?
+            System.out.println("What is your job? (Warrior = 1, Mage = 2, Thief = 3)"); //array of textrpg.jobs later?
             while (loop) {
                 try {
                     jobSelector = scan.nextInt();
@@ -109,7 +109,7 @@ public class TextRPG {
     public static void main(String[] args) throws IOException {
         final double version = 0.8;
 
-        System.out.println("TextRPG! v" + version);
+        System.out.println("textrpg.TextRPG! v" + version);
         if (DATA_BASE == 0) {
             new TextRPG(); //Starts the game (make this into a method instead?)
         }

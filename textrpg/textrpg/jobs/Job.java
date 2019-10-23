@@ -15,11 +15,11 @@ public class Job {
     protected String jobName;
     private final String skills_package_path = "textrpg.skills.";
 
-    protected List<Skill> skillsLearned;//the skills that the player currently has learned
-    protected String[] availableSkills;//skills that the job is able to learn
+    protected List<Skill> skillsLearned;//the textrpg.skills that the player currently has learned
+    protected String[] availableSkills;//textrpg.skills that the job is able to learn
     //ALL JOBS MUST LEARN ATTACK
     
-    protected double[] incrementStats; //The percentage that the stats will be increased by when the Player levels up
+    protected double[] incrementStats; //The percentage that the stats will be increased by when the textrpg.Player levels up
 
     public Job(){}
 
@@ -40,7 +40,7 @@ public class Job {
 
     public String getJobName(){return jobName;}
 
-    //Returns all of the skills learned as objects in an array
+    //Returns all of the textrpg.skills learned as objects in an array
     public Skill[] getSkills() {
         Skill[] s = new Skill[skillsLearned.size()];
         for (int i = 0; i < skillsLearned.size(); i++) {
@@ -49,7 +49,7 @@ public class Job {
         return s;
     }
 
-    //Prints all of the skills learned
+    //Prints all of the textrpg.skills learned
     public void printSkills() {
         Game.printBreak();
         String skil = "";
@@ -60,7 +60,7 @@ public class Job {
         System.out.println(skil);
     }
 
-    //initializes all of the skills that are learned at level 1
+    //initializes all of the textrpg.skills that are learned at level 1
     //This is temporary...
     public void initSkills(Player hero) throws ClassNotFoundException, InstantiationException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         for (String s : availableSkills) {
@@ -71,7 +71,7 @@ public class Job {
         }
     }
 
-    //Initializes the Player's stats based on the job
+    //Initializes the textrpg.Player's stats based on the job
     public void initializeJobStats(int[] baseStats, String job_Name, String[] initialSkills, Player p) {
         availableSkills = initialSkills;//this is just temp
         jobName = job_Name;
@@ -87,7 +87,7 @@ public class Job {
         p.initCurrentStats();
     }
 
-    //Increases the Player's stats based on the job
+    //Increases the textrpg.Player's stats based on the job
     public void levelUp(Player p) {
         p.setNextLevelExp((int) (p.getNextLevelExp() * incrementStats[0]));
 

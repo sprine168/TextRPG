@@ -28,7 +28,7 @@ public class Warrior extends Job {
 
     final String[] initialSkills = {"HeroicStrike", "Attack"};
 
-    public Warrior(Player p) {//need way to check for new available skills to be learnable
+    public Warrior(Player p) {//need way to check for new available textrpg.skills to be learnable
         super.initializeJobStats(BASE_STATS, CLASS_NAME, initialSkills, p); //Initializes the base stats and other variables for the job
 
         try {
