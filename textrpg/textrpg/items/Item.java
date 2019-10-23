@@ -1,7 +1,6 @@
 package textrpg.items;
 
-public class Item 
-{
+public class Item  {
 
     private String name;
     private String itemDescription;
@@ -48,7 +47,7 @@ public class Item
     
     /**
      * Sets the worth of the item in gold.
-     * @param goldWorth 
+     * @param goldWorth
      */
     public void setGoldWorth(int g){goldWorth = g;}
     
