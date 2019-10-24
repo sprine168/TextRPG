@@ -1,5 +1,7 @@
+import org.junit.Assert;
 import org.junit.Test;
 import textrpg.Player;
+import textrpg.items.Item;
 
 import static org.junit.Assert.*;
 
@@ -19,8 +21,9 @@ public class Tests {
     @Test
     public void testItems() {
 
-        Player players = new Player("steven ", 1);
-        assertEquals(1, players.getName());
-    }
+        Item items = new Item();
 
+        assertEquals(null, items.getName());
+
+    }
 }
