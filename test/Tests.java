@@ -7,18 +7,6 @@ import textrpg.shops.Shop;
 import static org.junit.Assert.*;
 
 public class Tests {
-
-    @Test
-    public void testTrue() {
-        assertTrue(true);
-    }
-
-    @Test
-    public void testFalse() {
-        assertFalse(true);
-    }
-
-
     // Testing Take Item
 
     @Test
