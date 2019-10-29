@@ -5,7 +5,7 @@ import textrpg.items.Item;
 import static org.junit.Assert.assertEquals;
 
 
-public class TestItem {
+public class ItemTest {
     @Test
     public void testItems() {
 
