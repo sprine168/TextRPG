@@ -1,4 +1,3 @@
-
 /*
  * Makes an Item object, a Health Potion object, and an Slime Extract Object.
  * Tests the functionality of their methods as is outlined in LevelTestPlan.pdf, which is located in the project folder.
