@@ -15,7 +15,7 @@ public class ItemTest {
     public void testItems() {
 
         Item items = new Item();
-        items.setName("health potion");
+        items.setName("Health Potion");
 
         assertEquals("Health Potion", items.getName());
 
