@@ -12,11 +12,13 @@
         <maven.compiler.release>7</maven.compiler.release>
     </properties>
 
-<!-- This is setting the compiler version for java-->
+    <!-- This is setting the compiler version for java-->
     <build>
 
-        <sourceDirectory>src/main</sourceDirectory>
-        <testSourceDirectory>src/test</testSourceDirectory>
+        <!--  source folder and testing folder directories for project structure  -->
+        <sourceDirectory>${project.basedir}/src/main</sourceDirectory>
+        <testSourceDirectory>${project.basedir}/src/test</testSourceDirectory>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
