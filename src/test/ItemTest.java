@@ -6,19 +6,20 @@
 
 import org.junit.Test;
 import textrpg.items.Item;
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertEquals;
-
-
+// Note: Unit tests are for
 public class ItemTest {
 
     @Test
     public void testItems() {
 
-        Item items = new Item();
-        items.setName("Health Potion");
+    }
 
-        assertEquals("Health Potion", items.getName());
+    @Test
+    public void validItems() {
 
     }
+
+
 }
