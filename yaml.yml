@@ -1,0 +1,5 @@
+## YAML Template.
+---
+sudo: false
+language: java
+
