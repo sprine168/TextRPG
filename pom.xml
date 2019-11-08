@@ -7,7 +7,8 @@
     <groupId>my-groupID</groupId>
     <artifactId>TextRPG</artifactId>
     <version>3.8.1</version>
-
+    
+    <!-- For java 9 and later -->
     <properties>
         <maven.compiler.release>7</maven.compiler.release>
     </properties>
