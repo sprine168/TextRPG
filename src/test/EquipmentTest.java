@@ -6,6 +6,7 @@
 
 import org.junit.Assert;
 import org.junit.Test;
+import textrpg.equipment.BronzeChest;
 import textrpg.equipment.Equipment;
 
 import static org.junit.Assert.*;
@@ -13,6 +14,8 @@ import static org.junit.Assert.*;
 public class EquipmentTest {
 
     Equipment dummy_equipment;
+
+    BronzeChest dummy_bronze_chest;
 
 
     @Test
@@ -28,6 +31,19 @@ public class EquipmentTest {
         Assert.assertEquals(1, dummy_equipment.getEquipmentType());
 
         Assert.assertArrayEquals(stats, dummy_equipment.getEquipmentStats());
+    }
+
+
+    @Test
+    public void testBronzeChest() {
+        dummy_bronze_chest = new BronzeChest();
+
+        int[] stats = {5, 0, 2, 0, 0, 0, 0};
+
+
+        Assert.assertEquals(2, dummy_bronze_chest.getEquipmentType());
+
+        Assert.assertArrayEquals(stats, dummy_bronze_chest.getEquipmentStats());
     }
 
 }
