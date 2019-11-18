@@ -5,12 +5,13 @@
 
 
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class EquiptmentTest {
 
     @Test
-    public void testEquiptment(){
+    public void testEquiptment() {
 
     }
 

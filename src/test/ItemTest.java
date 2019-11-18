@@ -6,6 +6,7 @@
 
 import org.junit.Test;
 import textrpg.items.Item;
+
 import static org.junit.Assert.*;
 
 // Note: Unit tests are for

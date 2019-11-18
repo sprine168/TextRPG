@@ -10,7 +10,7 @@
     
     <!-- For java 9 and later -->
     <properties>
-        <maven.compiler.release>7</maven.compiler.release>
+        <maven.compiler.release>11</maven.compiler.release>
     </properties>
 
     <!-- This is setting the compiler version for java-->
@@ -26,7 +26,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <release>7</release>
+                    <release>11</release>
                 </configuration>
             </plugin>
         </plugins>

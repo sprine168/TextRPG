@@ -1,6 +1,7 @@
 import org.junit.Test;
 import textrpg.Player;
 import textrpg.shops.Shop;
+
 import static org.junit.Assert.*;
 
 /**
@@ -11,7 +12,8 @@ import static org.junit.Assert.*;
 
 public class ShopTest {
 
-    @Test public void testValidShop(){
+    @Test
+    public void testValidShop() {
 
     }
 
