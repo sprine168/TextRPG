@@ -10,13 +10,13 @@ import textrpg.equipment.Equipment;
 
 import static org.junit.Assert.*;
 
-public class EquiptmentTest {
+public class EquipmentTest {
 
     Equipment dummy_equipment;
 
 
     @Test
-    public void testEquiptment(){
+    public void testEquipment(){
         dummy_equipment = new Equipment();
 
         dummy_equipment.setEquipmentType(1);
