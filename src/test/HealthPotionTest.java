@@ -146,4 +146,5 @@ public class HealthPotionTest {
         testHealth.getStatsModified()[7] = 5;
         assertEquals(testHealth.getStatsModified()[7], 5);
     }
+
 }
