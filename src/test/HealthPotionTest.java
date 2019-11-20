@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import textrpg.Player;
 import textrpg.items.HealthPotion;
+import textrpg.items.Item;
 
 import static org.junit.Assert.*;
 
@@ -19,19 +20,31 @@ public class HealthPotionTest {
     *   health
     */
     @Test
-    public void testHealthPotion(){
+    public void testHealthPotion() {
 
         Player player = new Player("Test", 1);
+        player.setCurrentHealth(10);
 
-//        int[] = {1, 2, 3, 4, 5};
+//      getCurrentHealth() + statsModified[0]
+        // Health is in the first array slot
+        int[] healthAdder = {50, 0, 0, 0, 0, 0, 0, 0};
+
+        int healthBefore = player.getCurrentHealth();
+
+        HealthPotion testHealthPotion = new HealthPotion();
+        testHealthPotion.setStatsModified(healthAdder);
+        testHealthPotion.use();
+
+        player.useItem(testHealthPotion.getStatsModified());
 
 
+        int healthAfter = player.getCurrentHealth();
 
-        HealthPotion testHealthIncrease = new HealthPotion();
-//        testHealthIncrease.setStatsModified(array[1]);
-//
-//        player.setCurrentHealth(testHealthIncrease.set);
-        assertEquals(player.getCurrentHealth(), 5);
+        System.out.printf("Health After: %d \n Health Before: %d \n", healthAfter, healthBefore);
+
+        boolean increased = (healthBefore < healthAfter);
+
+        assertTrue(increased);
     }
 
     /**
