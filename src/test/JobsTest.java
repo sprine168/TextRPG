@@ -18,6 +18,6 @@ public class JobsTest {
 
         dummy_job = new Job(dummy_player, 1);
 
-        Assert.assertEquals("Warrior", dummy_job.getJobName());
+        Assert.assertEquals("Warrior", dummy_player.getJobName());
     }
 }
