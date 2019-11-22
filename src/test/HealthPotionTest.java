@@ -25,7 +25,6 @@ public class HealthPotionTest {
         Player player = new Player("Test", 1);
         player.setCurrentHealth(10);
 
-//      getCurrentHealth() + statsModified[0]
         // Health is in the first array slot
         int[] healthAdder = {50, 0, 0, 0, 0, 0, 0, 0};
 
