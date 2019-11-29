@@ -22,12 +22,4 @@ public class HealthPotion extends Item {
         System.out.println("Gained " + super.getStatsModified()[0] + " Health!");
         return super.getStatsModified();
     }
-
-    // Added in a toString method to print out the name of the health potion
-    @Override
-    public String toString() {
-        String result;
-        result = String.format("%s", super.getName());
-        return result;
-    }
 }
