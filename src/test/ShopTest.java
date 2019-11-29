@@ -96,10 +96,6 @@ public class ShopTest {
         // Note: This will fail if player didn't obtain the health potion
         potion = player.getInventory().get(0);
 
-        // Outputting the memory location of the health potion
-        System.out.println(player.getInventory().get(0));
-        System.out.println(potion);
-
         // Seeing if player's inventory was updated
         assertEquals(potion, player.getInventory().get(0));
     }
