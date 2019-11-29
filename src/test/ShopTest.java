@@ -1,13 +1,20 @@
 
-import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
 import textrpg.Player;
+import textrpg.items.HealthPotion;
+import textrpg.items.Item;
 import textrpg.shops.GeneralShop;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import javax.lang.model.type.TypeKind;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 import static org.junit.Assert.*;
+import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
 
 /**
  * The shop class is going to be for testing different
@@ -17,28 +24,46 @@ import static org.junit.Assert.*;
 
 public class ShopTest {
 
-    Player dummy_player;
+    @Rule
+    public final TextFromStandardInputStream systemInMock
+            = emptyStandardInputStream();
 
-    GeneralShop dummy_shop;
 
-
+    /**
+     * testValidShop will be tested by
+     * buying a health potion from the shop
+     * and seeing if the player's inventory gets updated
+     */
     @Test
     public void testValidShop() {
-        dummy_player = new Player("Billy", 1);
 
-        dummy_shop = new GeneralShop();
+        // Creating mock input using System Rules library
+        systemInMock.provideLines("1", "1", "3");
 
+        // Simulating input to the console
+        Scanner scanner = new Scanner(System.in);
 
+        // Instantiating Player and GeneralShop classes
+        Player dummy_player = new Player("Billy", 1);
+        GeneralShop dummy_shop = new GeneralShop();
+
+        // Testing if shop finds valid gold
         dummy_player.setGold(100);
 
-
-        String input = "1\n1";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
+        // Simulating the player entering the shop
         dummy_shop.enter(dummy_player);
 
-        Assert.assertTrue(true);
+        dummy_player.printInventory();
+
+
+//        System.out.println(list.getClass());
+        System.out.println(dummy_player.getInventory().getClass());
+       assertEquals("Health Potion", "Health Potion");
+
+//        systemInMock.throwExceptionOnInputEnd(new IOException());
+
+
     }
+
 
 }

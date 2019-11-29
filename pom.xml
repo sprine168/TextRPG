@@ -7,7 +7,7 @@
     <groupId>my-groupID</groupId>
     <artifactId>TextRPG</artifactId>
     <version>3.8.1</version>
-    
+
     <!-- For java 9 and later -->
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
@@ -57,6 +57,14 @@
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.28.0</version>
+        </dependency>
+
+        <!-- https://stefanbirkner.github.io/system-rules/download.html-->
+        <dependency>
+            <groupId>com.github.stefanbirkner</groupId>
+            <artifactId>system-rules</artifactId>
+            <version>1.19.0</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
