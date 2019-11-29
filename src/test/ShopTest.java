@@ -2,13 +2,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
 import textrpg.Player;
-import textrpg.items.HealthPotion;
 import textrpg.items.Item;
 import textrpg.shops.GeneralShop;
-
 import java.util.Scanner;
-
-import static java.util.Arrays.asList;
 import static org.junit.Assert.*;
 import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
 
@@ -16,6 +12,9 @@ import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emp
  * The shop class is going to be for testing different
  * shop menu items that the player can choose from
  * valid input will be 1, 2, or 3 everything else is bad input
+ *
+ * When mocking input the first 1 is to buy 2 is to sell and 3 is to leave
+ * if going into buy, will need to select 1 for each purchase to buy new items
  */
 
 public class ShopTest {
@@ -32,25 +31,21 @@ public class ShopTest {
 
     /**
      * testValidShop will be tested by
-     * buying items from the shop. Change the input 1 (0, 1, 0) to 0 to 1 to test values
+     * buying items from the shop
      * and seeing if the player's inventory gets updated
      */
     @Test
     public void testShopHealthPotion() {
 
         // Creating mock input using System Rules library
-        systemInMock.provideLines("1", "1", "3"); // (buy, sell, leave)
+        systemInMock.provideLines("1", "1", "3");
 
-        // Simulating input to the console
         Scanner scanner = new Scanner(System.in);
 
-        // Instantiating Player and GeneralShop classes
         Player player = new Player("Billy", 1);
         GeneralShop shop = new GeneralShop();
         Item potion = null;
 
-
-        // Testing if shop finds valid gold
         player.setGold(100);
 
         // Simulating the player entering the shop
@@ -69,25 +64,23 @@ public class ShopTest {
 
 
     /**
-     * testValidShop will be tested by
-     * buying items from the shop. Change the input 1 (0, 1, 0) to 0 to 1 to test values
+     * testShopSlimeExtract will be tested by
+     * buying items from the shop
      * and seeing if the player's inventory gets updated
      */
     @Test
     public void testShopSlimeExtract() {
 
         // Creating mock input using System Rules library
-        systemInMock.provideLines("1", "0", "3"); // (buy, sell, leave)
+        systemInMock.provideLines("1", "0", "3");
 
         // Simulating input to the console
         Scanner scanner = new Scanner(System.in);
 
-        // Instantiating Player and GeneralShop classes
         Player player = new Player("Billy", 1);
         GeneralShop shop = new GeneralShop();
         Item potion = null;
 
-        // Testing if shop finds valid gold
         player.setGold(100);
 
         // Simulating the player entering the shop
@@ -98,5 +91,62 @@ public class ShopTest {
 
         // Seeing if player's inventory was updated
         assertEquals(potion, player.getInventory().get(0));
+    }
+
+    /**
+     * testGoldSpentOnSlimeExtractInShop will be tested by
+     * seeing if the player's gold is updated
+     */
+    @Test
+    public void testGoldSpentOnSlimeExtractInShop() {
+
+        // Creating mock input using System Rules library
+        systemInMock.provideLines("1", "0", "3");
+
+        Scanner scanner = new Scanner(System.in);
+
+        Player player = new Player("Billy", 1);
+        GeneralShop shop = new GeneralShop();
+        Item potion = null;
+
+        // Testing if shop finds valid gold
+        player.setGold(100);
+
+        // Simulating the player entering the shop
+        shop.enter(player);
+
+        // Getting player's current purse
+        System.out.println(player.getGold());
+
+        assertEquals(97, player.getGold());
+    }
+
+    /**
+     * testGoldSpentOnHealthPotionInShop will be tested by
+     * seeing if the player's gold is updated
+     */
+    @Test
+    public void testGoldSpentOnHealthPotionInShop() {
+
+        // Creating mock input using System Rules library
+        // Going into buy twice and selected the health potion each time
+        systemInMock.provideLines("1", "1", "1", "1", "3");
+
+        Scanner scanner = new Scanner(System.in);
+
+        Player player = new Player("Billy", 1);
+        GeneralShop shop = new GeneralShop();
+        Item potion = null;
+
+        // Testing if shop finds valid gold
+        player.setGold(100);
+
+        // Simulating the player entering the shop
+        shop.enter(player);
+
+        // Getting player's current purse
+        System.out.println(player.getGold());
+
+        assertEquals(90, player.getGold());
     }
 }

@@ -3,7 +3,6 @@
  * Tests the functionality of their methods as is outlined in LevelTestPlan.pdf, which is located in the project folder.
  */
 
-
 import org.junit.Test;
 import textrpg.items.Item;
 

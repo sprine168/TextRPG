@@ -8,30 +8,36 @@ import static org.junit.Assert.assertEquals;
 public class SkillsTest {
 
     /**
-     * Testing to see if a skill can be set
-     * correctly
+     * Testing to see if the player
+     * can properly have their
+     * skill set. The 1 is for warrior
      */
     @Test
-    public void testingSetSkills() {
+    public void testWarriorJob() {
 
-        Skill skills = new Skill();
-        skills.setSkillName("Fireball");
-        assertEquals(skills.getSkillName(), "Fireball");
+        // 1 is for the job type of the new player 1 = warrior
+        Player testPlayer = new Player("Steven", 1);
+
+        String skill = new String();
+
+
+        System.out.println(testPlayer);
+
+        assertEquals("Warrior", testPlayer.getJobName());
+
     }
 
     /**
      * Testing to see if the player
      * can properly have their
-     * skill set.
+     * skill set. The 1 is for warrior
      */
     @Test
     public void testSkill() {
         Player testPlayer = new Player("Steven", 1);
         Job testJobSkills = new Job();
 
-
-        System.out.println(testPlayer.getJob().getJobName());
-
+        assertEquals("Warrior", testPlayer.getJobName());
     }
 
 }

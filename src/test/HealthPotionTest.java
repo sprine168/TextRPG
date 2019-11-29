@@ -3,15 +3,10 @@
  * the equiptment class in the game
  * */
 
-
-import org.junit.Assert;
 import org.junit.Test;
 import textrpg.Player;
 import textrpg.items.HealthPotion;
-import textrpg.items.Item;
-
 import static org.junit.Assert.*;
-
 
 public class HealthPotionTest {
 
@@ -31,12 +26,15 @@ public class HealthPotionTest {
         int healthBefore = player.getCurrentHealth();
 
         HealthPotion testHealthPotion = new HealthPotion();
+
+        // Making the health potion health addable for 50 hit points
         testHealthPotion.setStatsModified(healthAdder);
         testHealthPotion.use();
 
+        // Getting player to use health potion to increase health
         player.useItem(testHealthPotion.getStatsModified());
 
-
+        // getting players health after health potion
         int healthAfter = player.getCurrentHealth();
 
         System.out.printf("Health After: %d \n Health Before: %d \n", healthAfter, healthBefore);
