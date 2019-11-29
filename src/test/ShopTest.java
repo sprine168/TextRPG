@@ -4,7 +4,11 @@ import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
 import textrpg.Player;
 import textrpg.items.Item;
 import textrpg.shops.GeneralShop;
+
+import java.text.CharacterIterator;
+import java.text.StringCharacterIterator;
 import java.util.Scanner;
+
 import static org.junit.Assert.*;
 import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
 
@@ -12,7 +16,7 @@ import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emp
  * The shop class is going to be for testing different
  * shop menu items that the player can choose from
  * valid input will be 1, 2, or 3 everything else is bad input
- *
+ * <p>
  * When mocking input the first 1 is to buy 2 is to sell and 3 is to leave
  * if going into buy, will need to select 1 for each purchase to buy new items
  */
@@ -107,7 +111,7 @@ public class ShopTest {
 
         Player player = new Player("Billy", 1);
         GeneralShop shop = new GeneralShop();
-        
+
         // Testing if shop finds valid gold
         player.setGold(100);
 
@@ -146,5 +150,43 @@ public class ShopTest {
         System.out.println(player.getGold());
 
         assertEquals(90, player.getGold());
+    }
+
+    /**
+     * allGoldSpentTest will be tested by
+     * seeing if the player's gold is updated
+     */
+    @Test
+    public void allGoldSpentTest() {
+
+        CharacterIterator it = new StringCharacterIterator("i");
+
+        // Creating mock input using System Rules library
+        // Spending all of the money in the shop
+        systemInMock.provideLines(
+                "1", "1",
+                "1", "1",
+                "1", "1",
+                "1", "1",
+                "1", "1",
+                "1", "1",
+                "1", "1",
+                 "3");
+
+        Scanner scanner = new Scanner(System.in);
+
+        Player player = new Player("Billy", 1);
+        GeneralShop shop = new GeneralShop();
+
+        // Testing if shop finds valid gold -- going over 5 gold 
+        player.setGold(30);
+
+        // Simulating the player entering the shop
+        shop.enter(player);
+
+        // Getting player's current purse
+        System.out.println(player.getGold());
+
+        assertEquals(0, player.getGold());
     }
 }
