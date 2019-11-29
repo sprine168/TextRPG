@@ -107,8 +107,7 @@ public class ShopTest {
 
         Player player = new Player("Billy", 1);
         GeneralShop shop = new GeneralShop();
-        Item potion = null;
-
+        
         // Testing if shop finds valid gold
         player.setGold(100);
 
@@ -136,7 +135,6 @@ public class ShopTest {
 
         Player player = new Player("Billy", 1);
         GeneralShop shop = new GeneralShop();
-        Item potion = null;
 
         // Testing if shop finds valid gold
         player.setGold(100);
