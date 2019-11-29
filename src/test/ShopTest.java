@@ -16,7 +16,6 @@ import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emp
  * The shop class is going to be for testing different
  * shop menu items that the player can choose from
  * valid input will be 1, 2, or 3 everything else is bad input
- * <p>
  * When mocking input the first 1 is to buy 2 is to sell and 3 is to leave
  * if going into buy, will need to select 1 for each purchase to buy new items
  */
@@ -65,7 +64,6 @@ public class ShopTest {
         // Seeing if player's inventory was updated
         assertEquals(potion, player.getInventory().get(0));
     }
-
 
     /**
      * testShopSlimeExtract will be tested by
@@ -178,7 +176,7 @@ public class ShopTest {
         Player player = new Player("Billy", 1);
         GeneralShop shop = new GeneralShop();
 
-        // Testing if shop finds valid gold -- going over 5 gold 
+        // Testing if shop finds valid gold -- going over 5 gold
         player.setGold(30);
 
         // Simulating the player entering the shop

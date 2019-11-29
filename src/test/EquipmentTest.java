@@ -3,12 +3,9 @@
  * the equiptment class in the game
  * */
 
-
-import org.junit.Assert;
 import org.junit.Test;
 import textrpg.equipment.BronzeChest;
 import textrpg.equipment.Equipment;
-
 import static org.junit.Assert.*;
 
 public class EquipmentTest {
@@ -28,9 +25,9 @@ public class EquipmentTest {
         dummy_equipment.setEquipmentStats(stats);
 
 
-        Assert.assertEquals(1, dummy_equipment.getEquipmentType());
+        assertEquals(1, dummy_equipment.getEquipmentType());
 
-        Assert.assertArrayEquals(stats, dummy_equipment.getEquipmentStats());
+        assertArrayEquals(stats, dummy_equipment.getEquipmentStats());
     }
 
 
@@ -41,9 +38,8 @@ public class EquipmentTest {
         int[] stats = {5, 0, 2, 0, 0, 0, 0};
 
 
-        Assert.assertEquals(2, dummy_bronze_chest.getEquipmentType());
+        assertEquals(2, dummy_bronze_chest.getEquipmentType());
 
-        Assert.assertArrayEquals(stats, dummy_bronze_chest.getEquipmentStats());
+        assertArrayEquals(stats, dummy_bronze_chest.getEquipmentStats());
     }
-
 }

@@ -1,8 +1,6 @@
 import org.junit.Test;
 import textrpg.Player;
 import textrpg.jobs.Job;
-import textrpg.skills.Skill;
-
 import static org.junit.Assert.assertEquals;
 
 public class SkillsTest {
@@ -20,11 +18,9 @@ public class SkillsTest {
 
         String skill = new String();
 
-
         System.out.println(testPlayer);
 
         assertEquals("Warrior", testPlayer.getJobName());
-
     }
 
     /**
