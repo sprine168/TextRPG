@@ -14,7 +14,7 @@ public class SkillTest {
     public void testWarriorSkill() {
 
         Player player = new Player("Test", 1);
-        
+
         // Note: the [0] is what the system is asking for input at that menu
         assertEquals("Heroic Strike", player.getJob().getSkills()[0].getSkillName());
     }
