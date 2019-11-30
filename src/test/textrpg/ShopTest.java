@@ -148,7 +148,7 @@ public class ShopTest {
      * seeing if the player's gold is updated
      */
     @Test
-    public void allGoldSpentTest() {
+    public void testAllGoldSpentTest() {
 
         // Creating mock input using System Rules library
         // Spending all of the money in the shop on health potions
