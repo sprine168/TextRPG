@@ -150,10 +150,8 @@ public class ShopTest {
     @Test
     public void allGoldSpentTest() {
 
-        CharacterIterator it = new StringCharacterIterator("i");
-
         // Creating mock input using System Rules library
-        // Spending all of the money in the shop
+        // Spending all of the money in the shop on health potions
         systemInMock.provideLines(
                 "1", "1",
                 "1", "1",
