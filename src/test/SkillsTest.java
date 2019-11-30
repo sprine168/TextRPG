@@ -8,7 +8,7 @@ public class SkillsTest {
     /**
      * Testing to see if the player
      * can properly have their
-     * skill set. The 1 is for warrior
+     * skill set.
      */
     @Test
     public void testWarriorJob() {
@@ -18,22 +18,37 @@ public class SkillsTest {
 
         String skill = new String();
 
-        System.out.println(testPlayer);
-
         assertEquals("Warrior", testPlayer.getJobName());
     }
 
     /**
      * Testing to see if the player
      * can properly have their
-     * skill set. The 1 is for warrior
+     * skill set.
      */
     @Test
-    public void testSkill() {
-        Player testPlayer = new Player("Steven", 1);
+    public void testMageJob() {
+
+        // 2 is for the mage job
+        Player testPlayer = new Player("Steven", 2);
         Job testJobSkills = new Job();
 
-        assertEquals("Warrior", testPlayer.getJobName());
+        assertEquals("Mage", testPlayer.getJobName());
+    }
+
+    /**
+     * Testing to see if the player
+     * can properly have their
+     * skill set.
+     */
+    @Test
+    public void testThiefJob() {
+
+        // 3 is for the thief job
+        Player testPlayer = new Player("Steven", 3);
+        Job testJobSkills = new Job();
+
+        assertEquals("Thief", testPlayer.getJobName());
     }
 
 }

@@ -42,4 +42,5 @@ public class EquipmentTest {
 
         assertArrayEquals(stats, dummy_bronze_chest.getEquipmentStats());
     }
+
 }
