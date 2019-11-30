@@ -1,4 +1,4 @@
-/*
+package textrpg;/*
  * EquiptmentTest is used to test
  * the equiptment class in the game
  * */

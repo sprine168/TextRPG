@@ -1,3 +1,5 @@
+package textrpg;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
@@ -43,9 +45,7 @@ public class ShopTest {
         // Creating mock input using System Rules library
         systemInMock.provideLines("1", "1", "3");
 
-        Scanner scanner = new Scanner(System.in);
-
-        Player player = new Player("Billy", 1);
+        Player player = new Player("Test", 1);
         GeneralShop shop = new GeneralShop();
         Item potion = null;
 
@@ -76,10 +76,7 @@ public class ShopTest {
         // Creating mock input using System Rules library
         systemInMock.provideLines("1", "0", "3");
 
-        // Simulating input to the console
-        Scanner scanner = new Scanner(System.in);
-
-        Player player = new Player("Billy", 1);
+        Player player = new Player("Test", 1);
         GeneralShop shop = new GeneralShop();
         Item potion = null;
 
@@ -105,9 +102,7 @@ public class ShopTest {
         // Creating mock input using System Rules library
         systemInMock.provideLines("1", "0", "3");
 
-        Scanner scanner = new Scanner(System.in);
-
-        Player player = new Player("Billy", 1);
+        Player player = new Player("Test", 1);
         GeneralShop shop = new GeneralShop();
 
         // Testing if shop finds valid gold
@@ -133,9 +128,7 @@ public class ShopTest {
         // Going into buy twice and selected the health potion each time
         systemInMock.provideLines("1", "1", "1", "1", "3");
 
-        Scanner scanner = new Scanner(System.in);
-
-        Player player = new Player("Billy", 1);
+        Player player = new Player("Test", 1);
         GeneralShop shop = new GeneralShop();
 
         // Testing if shop finds valid gold
@@ -171,9 +164,7 @@ public class ShopTest {
                 "1", "1",
                  "3");
 
-        Scanner scanner = new Scanner(System.in);
-
-        Player player = new Player("Billy", 1);
+        Player player = new Player("Test", 1);
         GeneralShop shop = new GeneralShop();
 
         // Testing if shop finds valid gold -- going over 5 gold
@@ -187,4 +178,5 @@ public class ShopTest {
 
         assertEquals(0, player.getGold());
     }
+
 }
